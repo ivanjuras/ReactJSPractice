@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My ReactJS Thumbnail Application</title>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+  <script type="text/jsx">
+
+    // ---------- Options ---------- //
+    
+    var options = {
+      number: 10,
+      title: 'Messages',
+      header: 'Learn ReactJS',
+      imageURL: 'https://cdn.auth0.com/blog/react-js/react.png',
+      description: 'ReactJS is actually the easiest frontend library to learn. I enjoy learning it, and I think I\'ll be able to make some money off of it.'
+    };
+
+    // ---------- Components ---------- //
+
+    // Badge
+    var Badge = React.createClass({
+
+      // Render HTML
+      render: function() {
+        return (
+          <button className="btn btn-primary" type="button">
+            {this.props.title} <span className="badge">{this.props.number}</span>
+          </button>
+        );
+      }
+
+    });
+
+    // Thumbnail
+    var Thumbnail = React.createClass({
+
+      // Render HTML
+      render: function() {  
+        return (
+          <div className="col-sm-6 col-md-4">
+            <div className="thumbnail">
+              <img src={this.props.imageURL} alt={this.props.description} />
+              <div className="caption">
+                <h3>{this.props.header}</h3>
+                <p>{this.props.description}</p>
+                <Badge title={this.props.title} number={this.props.number} />
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+    });
+
+    // ---------- Start React ---------- //
+
+    React.render(
+      React.createElement( Thumbnail, options ),
+      document.querySelector( '.container' )
+    );
+
+  </script>
+</html>

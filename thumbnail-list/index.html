@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My ReactJS Thumbnail List Application</title>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+  <script type="text/jsx">
+
+  // ---------- Options ---------- //
+  
+  var options = {
+    thumbnailData: [
+      {
+        number: 12,
+        title: 'Show courses',
+        header: 'Learn ReactJS',
+        imageURL: 'https://cdn.auth0.com/blog/react-js/react.png',
+        description: 'ReactJS is actually the easiest frontend library to learn. I enjoy learning it, and I think I\'ll be able to make some money off of it.'
+      },
+      {
+        number: 25,
+        title: 'Show courses',
+        header: 'Learn Gulp',
+        imageURL: 'http://brunch.io/images/others/gulp.png',
+        description: 'Gulp is one of the things that I\'ve learned in the past few months. It really does help me in optimizing my build processes a lot.'
+      },
+      {
+        number: 2,
+        title: 'Show courses',
+        header: 'Learn Bower',
+        imageURL: 'http://bower.io/img/bower-logo.png',
+        description: 'Web sites are made of lots of things — frameworks, libraries, assets, utilities, and rainbows. Bower manages all these things for you.'
+      }
+
+    ]
+  };
+
+  // ---------- Components ---------- //
+
+  // Badge
+  var Badge = React.createClass({
+
+    render: function() {
+      return (
+        <button className="btn btn-primary" type="button">
+          {this.props.title} <span className="badge">{this.props.number}</span>
+        </button>
+      );
+    }
+
+  });
+
+  // Thumbnail
+  var Thumbnail = React.createClass({
+
+    render: function() {  
+      return (
+        <div className="col-sm-6 col-md-4">
+          <div className="thumbnail">
+            <img src={this.props.imageURL} alt="..." />
+            <div className="caption">
+              <h3>{this.props.header}</h3>
+              <p>{this.props.description}</p>
+              <Badge title={this.props.title} number={this.props.number} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+  });
+
+  // Thumbnail list
+  var ThumbnailList = React.createClass({
+
+    render: function() {
+      var list = this.props.thumbnailData.map( function( thumbnailProps ) {
+        return <Thumbnail {...thumbnailProps} />
+      });
+
+      return (
+        <div>
+          {list}
+        </div>
+      );
+    }
+
+  });
+
+  // ---------- Render to HTML ---------- //
+
+  React.render(
+    React.createElement( ThumbnailList, options ),
+    document.getElementsByClassName( 'container' )[0]
+  );
+
+  </script>
+</html>

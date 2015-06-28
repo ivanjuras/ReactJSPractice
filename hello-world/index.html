@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My ReactJS Application</title>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  </head>
+  <body>
+  </body>
+  <!-- APP START -->
+  <script type="text/jsx">
+
+    // ---------- Options ---------- //
+
+    var options = {
+      ime: 'Ivan',
+      prezime: 'Juras'
+    };
+
+    // ---------- Components ---------- //
+
+    var HelloWorld = React.createClass({
+
+      render: function() {
+        return(
+          <div>
+            Hello World
+            <NestedComp options={this.props.options}/>
+          </div>
+        );
+      }
+
+    });
+
+    var NestedComp = React.createClass({
+
+      render: function() {
+        var osoba = this.props.options;
+        return(
+          <ul>
+            <li>Ime: {this.props.options.ime}</li>
+            <li>Prezime: {this.props.options.prezime}</li>
+          </ul>
+        ); 
+      }
+
+    });
+
+    React.render( <HelloWorld options={options} />, document.body );
+
+  </script>
+</html>

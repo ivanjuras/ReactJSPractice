@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My ReactJS Application</title>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  </head>
+  <body>
+  </body>
+  <script type="text/jsx">
+
+    // ---------- Options ---------- //
+
+    var options = {
+      title: 'Button',
+      number: '12'
+    };
+
+    // ---------- Badge ---------- //
+
+    var Badge = React.createClass({
+
+      // Render HTML
+      render: function() {
+        return (
+          <button className="btn btn-primary" type="button">
+            {this.props.title} <span className="badge">{this.props.number}</span>
+          </button>
+        );
+      }
+
+    });
+
+    // ---------- Render ---------- //
+
+    React.render( React.createElement(Badge, options), document.body );
+
+  </script>
+</html>
