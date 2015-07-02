@@ -1,20 +1,20 @@
-
 var React = require( 'react' ),
     Thumbnail = require( './Thumbnail' );
 
-// ----- ThumbnailList component
+// ThumbnailList
 module.exports = React.createClass({
 
-  render: function() {
-    
+  // Render
+  render: function() {  
     var list = this.props.thumbnailData.map( function( thumbnailProps ) {
       return <Thumbnail {...thumbnailProps} key={Math.random()} />
     });
 
-    return <div>
-      {list}
-    </div>
-    
+    return (
+      <div>
+        {list}
+      </div>
+    );  
   }
 
 });

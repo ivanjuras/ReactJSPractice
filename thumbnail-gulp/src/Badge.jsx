@@ -1,14 +1,15 @@
 var React = require( 'react' );
 
-// ----- Badge component
+// Badge
 module.exports = React.createClass({
 
+  // Render
   render: function() {
-
-    return <button className="btn btn-primary" type="button">
-      {this.props.title} <span className="badge">{this.props.number}</span>
-    </button>
-
+    return (
+      <button className="btn btn-primary" type="button">
+        {this.props.title} <span className="badge">{this.props.number}</span>
+      </button>
+    );
   }
 
 });

@@ -1,11 +1,9 @@
 var React = require( 'react' ),
     ThumbnailList = require( './ThumbnailList' );
 
-// ----- Options
+// Options
 var options = {
-
   thumbnailData: [
-
     {
       number: 12,
       title: 'Show courses',
@@ -27,13 +25,10 @@ var options = {
       imageURL: 'http://bower.io/img/bower-logo.png',
       description: 'Web sites are made of lots of things — frameworks, libraries, assets, utilities, and rainbows. Bower manages all these things for you.'
     }
-
   ]
-
 };
 
-
-// ----- Render the class and place it into HTML
+// Render to HTML
 React.render(
   React.createElement( ThumbnailList, options ),
   document.getElementsByClassName( 'container' )[0]

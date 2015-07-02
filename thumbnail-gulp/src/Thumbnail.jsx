@@ -1,12 +1,12 @@
 var React = require( 'react' ),
     Badge = require( './Badge' );
 
-// ----- Thumbnail component
+// Thumbnail
 module.exports = React.createClass({
 
+  // Render
   render: function() {  
     return (
-
       <div className="col-sm-6 col-md-4">
         <div className="thumbnail">
           <img src={this.props.imageURL} alt="..." />
@@ -17,7 +17,6 @@ module.exports = React.createClass({
           </div>
         </div>
       </div>
-
     );
   }
 
